@@ -1,0 +1,6 @@
+[submodule "lib/esp_littlefs"]
+	path = lib/esp_littlefs
+	url = https://github.com/joltwallet/esp_littlefs.git
+[submodule "lib/AgIsoStack-plus-plus"]
+	path = lib/AgIsoStack-plus-plus
+	url = https://github.com/SybexX/AgIsoStack-plus-plus.git
