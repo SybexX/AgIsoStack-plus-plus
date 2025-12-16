@@ -3804,16 +3804,17 @@ namespace isobus
 			ChangeAttribute = 0xAF,
 			ChangePriority = 0xB0,
 			ChangeListItem = 0xB1,
-			ChangeStringValue = 0xB3,
-			ChangeChildPosition = 0xB4,
-			ChangeObjectLabel = 0xB5,
-			ChangePolygonPoint = 0xB6,
-			LockUnlockMask = 0xBD,
-			ExecuteMacro = 0xBE,
-			ChangePolygonScale = 0xB7,
-			GraphicsContextCommand = 0xB8,
-			SelectColourMap = 0xBA,
-			ExecuteExtendedMacro = 0xBC
+			ChangeStringValue = 0xB2,
+			ChangeChildPosition = 0xB3,
+			ChangeObjectLabel = 0xB4,
+			ChangePolygonPoint = 0xB5,
+			ChangePolygonScale = 0xB6,
+			GraphicsContext = 0xB7,
+			GetAttribute = 0xB8,
+			SelectColourMap = 0xB9,
+			ExecuteExtendedMacro = 0xBA,
+			LockUnlockMask = 0xBB,
+			ExecuteMacro = 0xBC
 		};
 
 		/// @brief Constructor for a macro object
