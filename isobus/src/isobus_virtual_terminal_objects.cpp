@@ -7321,7 +7321,7 @@ namespace isobus
 		static_cast<std::uint8_t>(Command::LockUnlockMask),
 		static_cast<std::uint8_t>(Command::ExecuteMacro),
 		static_cast<std::uint8_t>(Command::ChangePolygonScale),
-		static_cast<std::uint8_t>(Command::GraphicsContextCommand),
+		static_cast<std::uint8_t>(Command::GraphicsContext),
 		static_cast<std::uint8_t>(Command::SelectColourMap),
 		static_cast<std::uint8_t>(Command::ExecuteExtendedMacro)
 	};
