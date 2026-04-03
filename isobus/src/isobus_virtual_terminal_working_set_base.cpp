@@ -1886,7 +1886,7 @@ namespace isobus
 				}
 				break;
 
-				case VirtualTerminalObjectType::ObjectLabelRefrenceList:
+				case VirtualTerminalObjectType::ObjectLabelReferenceList:
 				{
 					LOG_ERROR("[WS]: Object label reference not supported yet (todo)");
 				}
