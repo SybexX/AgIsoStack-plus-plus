@@ -3754,7 +3754,7 @@ namespace isobus
 
 			case VirtualTerminalObjectType::OutputList:
 			case VirtualTerminalObjectType::ExternalReferenceNAME:
-			case VirtualTerminalObjectType::ObjectLabelRefrenceList:
+			case VirtualTerminalObjectType::ObjectLabelReferenceList:
 			{
 				retVal = 12;
 			}
@@ -4158,7 +4158,7 @@ namespace isobus
 			}
 			break;
 
-			case VirtualTerminalObjectType::ObjectLabelRefrenceList:
+			case VirtualTerminalObjectType::ObjectLabelReferenceList:
 			{
 				const std::uint32_t sizeOfLabeledObjects = ((static_cast<std::uint16_t>(buffer[4]) | static_cast<std::uint16_t>(buffer[5]) << 8) * 7);
 				retVal += sizeOfLabeledObjects;
