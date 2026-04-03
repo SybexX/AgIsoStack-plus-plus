@@ -823,7 +823,7 @@ TEST(VIRTUAL_TERMINAL_TESTS, TestNumberBytesInInvalidObjects)
 	DerivedTestVTClient clientUnderTest(nullptr, nullptr);
 
 	// Test some unsupported objects
-	for (auto i = static_cast<std::uint8_t>(VirtualTerminalObjectType::ManufacturerDefined1); i < static_cast<std::uint8_t>(VirtualTerminalObjectType::Reserved); i++)
+	for (auto i = static_cast<std::uint8_t>(VirtualTerminalObjectType::ManufacturerDefined1); i < static_cast<std::uint8_t>(VirtualTerminalObjectType::Reserved_255); i++)
 	{
 		std::uint8_t testObject[] = {
 			0x00,
