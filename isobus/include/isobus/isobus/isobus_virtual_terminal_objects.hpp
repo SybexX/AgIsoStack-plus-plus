@@ -3879,7 +3879,7 @@ namespace isobus
 
 	private:
 		static constexpr std::uint32_t MIN_OBJECT_LENGTH = 5; ///< The fewest bytes of IOP data that can represent this object
-		static const std::array<std::uint8_t, 28> ALLOWED_COMMANDS_LOOKUP_TABLE; ///< The list of all allowed commands in a table for easy lookup when validating macro content
+		static const std::array<std::uint8_t, 31> ALLOWED_COMMANDS_LOOKUP_TABLE; ///< The list of all allowed commands in a table for easy lookup when validating macro content
 		std::vector<std::vector<std::uint8_t>> commandPackets; ///< Macro command list
 	};
 
