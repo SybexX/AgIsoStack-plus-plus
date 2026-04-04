@@ -7285,7 +7285,7 @@ namespace isobus
 		externalObjectID = id;
 	}
 
-	const std::array<std::uint8_t, 28> Macro::ALLOWED_COMMANDS_LOOKUP_TABLE = {
+	const std::array<std::uint8_t, 31> Macro::ALLOWED_COMMANDS_LOOKUP_TABLE = {
 		static_cast<std::uint8_t>(Command::HideShowObject),
 		static_cast<std::uint8_t>(Command::EnableDisableObject),
 		static_cast<std::uint8_t>(Command::SelectInputObject),
@@ -7304,16 +7304,19 @@ namespace isobus
 		static_cast<std::uint8_t>(Command::ChangeAttribute),
 		static_cast<std::uint8_t>(Command::ChangePriority),
 		static_cast<std::uint8_t>(Command::ChangeListItem),
+		static_cast<std::uint8_t>(Command::DeleteObjectPool),		
 		static_cast<std::uint8_t>(Command::ChangeStringValue),
 		static_cast<std::uint8_t>(Command::ChangeChildPosition),
 		static_cast<std::uint8_t>(Command::ChangeObjectLabel),
 		static_cast<std::uint8_t>(Command::ChangePolygonPoint),
-		static_cast<std::uint8_t>(Command::LockUnlockMask),
-		static_cast<std::uint8_t>(Command::ExecuteMacro),
 		static_cast<std::uint8_t>(Command::ChangePolygonScale),
 		static_cast<std::uint8_t>(Command::GraphicsContextCommand),
+		static_cast<std::uint8_t>(Command::GetAttribute),
 		static_cast<std::uint8_t>(Command::SelectColourMap),
-		static_cast<std::uint8_t>(Command::ExecuteExtendedMacro)
+		static_cast<std::uint8_t>(Command::IdentifyVTMessage),
+		static_cast<std::uint8_t>(Command::ExecuteExtendedMacro),
+		static_cast<std::uint8_t>(Command::LockUnlockMask),
+		static_cast<std::uint8_t>(Command::ExecuteMacro)
 	};
 
 	VirtualTerminalObjectType Macro::get_object_type() const
