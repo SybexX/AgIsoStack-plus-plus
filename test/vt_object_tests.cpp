@@ -20,7 +20,7 @@ static void run_baseline_tests(VTObject *objectUnderTest)
 	EXPECT_EQ(objectUnderTest->get_id(), NULL_OBJECT_ID);
 	EXPECT_EQ(objectUnderTest->get_height(), 0);
 	EXPECT_EQ(objectUnderTest->get_width(), 0);
-	EXPECT_NE(objectUnderTest->get_minumum_object_length(), 0);
+	EXPECT_NE(objectUnderTest->get_minimum_object_length(), 0);
 
 	objectUnderTest->set_background_color(9);
 	EXPECT_EQ(objectUnderTest->get_background_color(), 9);
