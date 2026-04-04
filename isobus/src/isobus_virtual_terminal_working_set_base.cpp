@@ -1971,7 +1971,7 @@ namespace isobus
 										});
 										commandLength = 9;
 										break;
-									case Macro::Command::GraphicsContext:
+									case Macro::Command::GraphicsContextCommand:
 										// FIXME
 										break;
 									case Macro::Command::ChangeStringValue:
