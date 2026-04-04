@@ -125,6 +125,8 @@ namespace isobus
 		OnChangeChildPosition = 26, ///< Change Child Position command
 		OnPointingEventPress = 27, ///< Operator touches/clicks an area that causes a pointing event
 		OnPointingEventRelease = 28, ///< Operator touch/click is released
+		ReservedBegin = 29, ///< Beginning of reserved range
+		ReservedEnd = 239, ///< End of reserved range
 		ProprietaryRangeBegin = 240, ///< Proprietary range begin
 		ProprietaryRangeEnd = 254, ///< Proprietary range end
 		UseExtendedMacroReference = 255 ///< This is not an event. When value is found in the event list of an object, it indicates that a 16 bit Macro Object ID reference is used
@@ -207,7 +209,7 @@ namespace isobus
 
 		/// @brief Returns the minimum binary serialized length of the associated object
 		/// @returns The minimum binary serialized length of the associated object
-		virtual std::uint32_t get_minumum_object_length() const = 0;
+		virtual std::uint32_t get_minimum_object_length() const = 0;
 
 		/// @brief Performs basic error checking on the object and returns if the object is valid
 		/// @param[in] objectPool A map of all objects in the current object pool, keyed by their object ID
@@ -413,7 +415,7 @@ namespace isobus
 
 		/// @brief Returns the minimum binary serialized length of the associated object
 		/// @returns The minimum binary serialized length of the associated object
-		std::uint32_t get_minumum_object_length() const override;
+		std::uint32_t get_minimum_object_length() const override;
 
 		/// @brief Performs basic error checking on the object and returns if the object is valid
 		/// @param[in] objectPool The object pool to use when validating this object
@@ -489,7 +491,7 @@ namespace isobus
 
 		/// @brief Returns the minimum binary serialized length of the associated object
 		/// @returns The minimum binary serialized length of the associated object
-		std::uint32_t get_minumum_object_length() const override;
+		std::uint32_t get_minimum_object_length() const override;
 
 		/// @brief Performs basic error checking on the object and returns if the object is valid
 		/// @param[in] objectPool The object pool to use when validating the object
@@ -582,7 +584,7 @@ namespace isobus
 
 		/// @brief Returns the minimum binary serialized length of the associated object
 		/// @returns The minimum binary serialized length of the associated object
-		std::uint32_t get_minumum_object_length() const override;
+		std::uint32_t get_minimum_object_length() const override;
 
 		/// @brief Performs basic error checking on the object and returns if the object is valid
 		/// @param[in] objectPool The object pool to use when validating the object
@@ -681,7 +683,7 @@ namespace isobus
 
 		/// @brief Returns the minimum binary serialized length of the associated object
 		/// @returns The minimum binary serialized length of the associated object
-		std::uint32_t get_minumum_object_length() const override;
+		std::uint32_t get_minimum_object_length() const override;
 
 		/// @brief Performs basic error checking on the object and returns if the object is valid
 		/// @param[in] objectPool The object pool to use when validating the object
@@ -749,7 +751,7 @@ namespace isobus
 
 		/// @brief Returns the minimum binary serialized length of the associated object
 		/// @returns The minimum binary serialized length of the associated object
-		std::uint32_t get_minumum_object_length() const override;
+		std::uint32_t get_minimum_object_length() const override;
 
 		/// @brief Performs basic error checking on the object and returns if the object is valid
 		/// @param[in] objectPool The object pool to use when validating the object
@@ -806,7 +808,7 @@ namespace isobus
 
 		/// @brief Returns the minimum binary serialized length of the associated object
 		/// @returns The minimum binary serialized length of the associated object
-		std::uint32_t get_minumum_object_length() const override;
+		std::uint32_t get_minimum_object_length() const override;
 
 		/// @brief Performs basic error checking on the object and returns if the object is valid
 		/// @param[in] objectPool The object pool to use when validating the object
@@ -879,7 +881,7 @@ namespace isobus
 
 		/// @brief Returns the minimum binary serialized length of the associated object
 		/// @returns The minimum binary serialized length of the associated object
-		std::uint32_t get_minumum_object_length() const override;
+		std::uint32_t get_minimum_object_length() const override;
 
 		/// @brief Performs basic error checking on the object and returns if the object is valid
 		/// @param[in] objectPool The object pool to use when validating the object
@@ -998,7 +1000,7 @@ namespace isobus
 
 		/// @brief Returns the minimum binary serialized length of the associated object
 		/// @returns The minimum binary serialized length of the associated object
-		std::uint32_t get_minumum_object_length() const override;
+		std::uint32_t get_minimum_object_length() const override;
 
 		/// @brief Performs basic error checking on the object and returns if the object is valid
 		/// @param[in] objectPool The object pool to use when validating the object
@@ -1092,7 +1094,7 @@ namespace isobus
 
 		/// @brief Returns the minimum binary serialized length of the associated object
 		/// @returns The minimum binary serialized length of the associated object
-		std::uint32_t get_minumum_object_length() const override;
+		std::uint32_t get_minimum_object_length() const override;
 
 		/// @brief Performs basic error checking on the object and returns if the object is valid
 		/// @param[in] objectPool The object pool to use when validating the object
@@ -1280,7 +1282,7 @@ namespace isobus
 
 		/// @brief Returns the minimum binary serialized length of the associated object
 		/// @returns The minimum binary serialized length of the associated object
-		std::uint32_t get_minumum_object_length() const override;
+		std::uint32_t get_minimum_object_length() const override;
 
 		/// @brief Performs basic error checking on the object and returns if the object is valid
 		/// @param[in] objectPool The object pool to use when validating the object
@@ -1462,7 +1464,7 @@ namespace isobus
 
 		/// @brief Returns the minimum binary serialized length of the associated object
 		/// @returns The minimum binary serialized length of the associated object
-		std::uint32_t get_minumum_object_length() const override;
+		std::uint32_t get_minimum_object_length() const override;
 
 		/// @brief Performs basic error checking on the object and returns if the object is valid
 		/// @param[in] objectPool The object pool to use when validating the object
@@ -1596,7 +1598,7 @@ namespace isobus
 
 		/// @brief Returns the minimum binary serialized length of the associated object
 		/// @returns The minimum binary serialized length of the associated object
-		std::uint32_t get_minumum_object_length() const override;
+		std::uint32_t get_minimum_object_length() const override;
 
 		/// @brief Performs basic error checking on the object and returns if the object is valid
 		/// @param[in] objectPool The object pool to use when validating the object
@@ -1680,7 +1682,7 @@ namespace isobus
 
 		/// @brief Returns the minimum binary serialized length of the associated object
 		/// @returns The minimum binary serialized length of the associated object
-		std::uint32_t get_minumum_object_length() const override;
+		std::uint32_t get_minimum_object_length() const override;
 
 		/// @brief Performs basic error checking on the object and returns if the object is valid
 		/// @param[in] objectPool The object pool to use when validating the object
@@ -1755,7 +1757,7 @@ namespace isobus
 
 		/// @brief Returns the minimum binary serialized length of the associated object
 		/// @returns The minimum binary serialized length of the associated object
-		std::uint32_t get_minumum_object_length() const override;
+		std::uint32_t get_minimum_object_length() const override;
 
 		/// @brief Performs basic error checking on the object and returns if the object is valid
 		/// @param[in] objectPool The object pool to use when validating the object
@@ -1813,7 +1815,7 @@ namespace isobus
 
 		/// @brief Returns the minimum binary serialized length of the associated object
 		/// @returns The minimum binary serialized length of the associated object
-		std::uint32_t get_minumum_object_length() const override;
+		std::uint32_t get_minimum_object_length() const override;
 
 		/// @brief Performs basic error checking on the object and returns if the object is valid
 		/// @param[in] objectPool The object pool to use when validating the object
@@ -1885,7 +1887,7 @@ namespace isobus
 
 		/// @brief Returns the minimum binary serialized length of the associated object
 		/// @returns The minimum binary serialized length of the associated object
-		std::uint32_t get_minumum_object_length() const override;
+		std::uint32_t get_minimum_object_length() const override;
 
 		/// @brief Performs basic error checking on the object and returns if the object is valid
 		/// @param[in] objectPool The object pool to use when validating the object
@@ -1978,7 +1980,7 @@ namespace isobus
 
 		/// @brief Returns the minimum binary serialized length of the associated object
 		/// @returns The minimum binary serialized length of the associated object
-		std::uint32_t get_minumum_object_length() const override;
+		std::uint32_t get_minimum_object_length() const override;
 
 		/// @brief Performs basic error checking on the object and returns if the object is valid
 		/// @param[in] objectPool The object pool to use when validating the object
@@ -2080,7 +2082,7 @@ namespace isobus
 
 		/// @brief Returns the minimum binary serialized length of the associated object
 		/// @returns The minimum binary serialized length of the associated object
-		std::uint32_t get_minumum_object_length() const override;
+		std::uint32_t get_minimum_object_length() const override;
 
 		/// @brief Performs basic error checking on the object and returns if the object is valid
 		/// @param[in] objectPool The object pool to use when validating the object
@@ -2210,7 +2212,7 @@ namespace isobus
 
 		/// @brief Returns the minimum binary serialized length of the associated object
 		/// @returns The minimum binary serialized length of the associated object
-		std::uint32_t get_minumum_object_length() const override;
+		std::uint32_t get_minimum_object_length() const override;
 
 		/// @brief Performs basic error checking on the object and returns if the object is valid
 		/// @param[in] objectPool The object pool to use when validating the object
@@ -2337,7 +2339,7 @@ namespace isobus
 
 		/// @brief Returns the minimum binary serialized length of the associated object
 		/// @returns The minimum binary serialized length of the associated object
-		std::uint32_t get_minumum_object_length() const override;
+		std::uint32_t get_minimum_object_length() const override;
 
 		/// @brief Performs basic error checking on the object and returns if the object is valid
 		/// @param[in] objectPool The object pool to use when validating the object
@@ -2515,7 +2517,7 @@ namespace isobus
 
 		/// @brief Returns the minimum binary serialized length of the associated object
 		/// @returns The minimum binary serialized length of the associated object
-		std::uint32_t get_minumum_object_length() const override;
+		std::uint32_t get_minimum_object_length() const override;
 
 		/// @brief Performs basic error checking on the object and returns if the object is valid
 		/// @param[in] objectPool The object pool to use when validating the object
@@ -2686,7 +2688,7 @@ namespace isobus
 
 		/// @brief Returns the minimum binary serialized length of the associated object
 		/// @returns The minimum binary serialized length of the associated object
-		std::uint32_t get_minumum_object_length() const override;
+		std::uint32_t get_minimum_object_length() const override;
 
 		/// @brief Performs basic error checking on the object and returns if the object is valid
 		/// @param[in] objectPool The object pool to use when validating the object
@@ -2876,7 +2878,7 @@ namespace isobus
 
 		/// @brief Returns the minimum binary serialized length of the associated object
 		/// @returns The minimum binary serialized length of the associated object
-		std::uint32_t get_minumum_object_length() const override;
+		std::uint32_t get_minimum_object_length() const override;
 
 		/// @brief Performs basic error checking on the object and returns if the object is valid
 		/// @param[in] objectPool The object pool to use when validating the object
@@ -3006,7 +3008,7 @@ namespace isobus
 
 		/// @brief Returns the minimum binary serialized length of the associated object
 		/// @returns The minimum binary serialized length of the associated object
-		std::uint32_t get_minumum_object_length() const override;
+		std::uint32_t get_minimum_object_length() const override;
 
 		/// @brief Performs basic error checking on the object and returns if the object is valid
 		/// @param[in] objectPool The object pool to use when validating the object
@@ -3070,7 +3072,7 @@ namespace isobus
 
 		/// @brief Returns the minimum binary serialized length of the associated object
 		/// @returns The minimum binary serialized length of the associated object
-		std::uint32_t get_minumum_object_length() const override;
+		std::uint32_t get_minimum_object_length() const override;
 
 		/// @brief Performs basic error checking on the object and returns if the object is valid
 		/// @param[in] objectPool The object pool to use when validating the object
@@ -3187,7 +3189,7 @@ namespace isobus
 
 		/// @brief Returns the minimum binary serialized length of the associated object
 		/// @returns The minimum binary serialized length of the associated object
-		std::uint32_t get_minumum_object_length() const override;
+		std::uint32_t get_minimum_object_length() const override;
 
 		/// @brief Performs basic error checking on the object and returns if the object is valid
 		/// @param[in] objectPool The object pool to use when validating the object
@@ -3299,7 +3301,7 @@ namespace isobus
 
 		/// @brief Returns the minimum binary serialized length of the associated object
 		/// @returns The minimum binary serialized length of the associated object
-		std::uint32_t get_minumum_object_length() const override;
+		std::uint32_t get_minimum_object_length() const override;
 
 		/// @brief Performs basic error checking on the object and returns if the object is valid
 		/// @param[in] objectPool The object pool to use when validating the object
@@ -3375,7 +3377,7 @@ namespace isobus
 
 		/// @brief Returns the minimum binary serialized length of the associated object
 		/// @returns The minimum binary serialized length of the associated object
-		std::uint32_t get_minumum_object_length() const override;
+		std::uint32_t get_minimum_object_length() const override;
 
 		/// @brief Performs basic error checking on the object and returns if the object is valid
 		/// @param[in] objectPool The object pool to use when validating the object
@@ -3457,7 +3459,7 @@ namespace isobus
 
 		/// @brief Returns the minimum binary serialized length of the associated object
 		/// @returns The minimum binary serialized length of the associated object
-		std::uint32_t get_minumum_object_length() const override;
+		std::uint32_t get_minimum_object_length() const override;
 
 		/// @brief Performs basic error checking on the object and returns if the object is valid
 		/// @param[in] objectPool The object pool to use when validating the object
@@ -3540,7 +3542,7 @@ namespace isobus
 
 		/// @brief Returns the minimum binary serialized length of the associated object
 		/// @returns The minimum binary serialized length of the associated object
-		std::uint32_t get_minumum_object_length() const override;
+		std::uint32_t get_minimum_object_length() const override;
 
 		/// @brief Performs basic error checking on the object and returns if the object is valid
 		/// @param[in] objectPool The object pool to use when validating the object
@@ -3623,7 +3625,7 @@ namespace isobus
 
 		/// @brief Returns the minimum binary serialized length of the associated object
 		/// @returns The minimum binary serialized length of the associated object
-		std::uint32_t get_minumum_object_length() const override;
+		std::uint32_t get_minimum_object_length() const override;
 
 		/// @brief Performs basic error checking on the object and returns if the object is valid
 		/// @param[in] objectPool The object pool to use when validating the object
@@ -3691,7 +3693,7 @@ namespace isobus
 
 		/// @brief Returns the minimum binary serialized length of the associated object
 		/// @returns The minimum binary serialized length of the associated object
-		std::uint32_t get_minumum_object_length() const override;
+		std::uint32_t get_minimum_object_length() const override;
 
 		/// @brief Performs basic error checking on the object and returns if the object is valid
 		/// @param[in] objectPool The object pool to use when validating the object
@@ -3799,16 +3801,16 @@ namespace isobus
 			// 0xB0–0xBE: Makro-kompatibel / Reserved
 			ChangePriority         = 0xB0, ///< Change mask priority
 			ChangeListItem         = 0xB1, ///< Update list item
-			DeleteObjectPool       = 0xB2, ///< Reserved / Delete object pool
+			///DeleteObjectPool       = 0xB2, ///< Reserved / Delete object pool
 			ChangeStringValue      = 0xB3, ///< Update string value
 			ChangeChildPosition    = 0xB4, ///< Move child object
 			ChangeObjectLabel      = 0xB5, ///< Change object label
 			ChangePolygonPoint     = 0xB6, ///< Update polygon point
 			ChangePolygonScale     = 0xB7, ///< Scale polygon
 			GraphicsContextCommand = 0xB8, ///< Change graphics context
-			GetAttribute           = 0xB9, ///< Reserved / Get attribute value
+			///GetAttribute           = 0xB9, ///< Reserved / Get attribute value
 			SelectColourMap        = 0xBA, ///< Change color map
-			IdentifyVTMessage      = 0xBB, ///< Reserved / Identify VT
+			///IdentifyVTMessage      = 0xBB, ///< Reserved / Identify VT
 			ExecuteExtendedMacro   = 0xBC, ///< Execute extended macro
 			LockUnlockMask         = 0xBD, ///< Lock or unlock mask
 			ExecuteMacro           = 0xBE  ///< Execute macro
@@ -3826,7 +3828,7 @@ namespace isobus
 
 		/// @brief Returns the minimum binary serialized length of the associated object
 		/// @returns The minimum binary serialized length of the associated object
-		std::uint32_t get_minumum_object_length() const override;
+		std::uint32_t get_minimum_object_length() const override;
 
 		/// @brief Performs basic error checking on the object and returns if the object is valid
 		/// @param[in] objectPool The object pool to use when validating the object
@@ -3879,7 +3881,7 @@ namespace isobus
 
 	private:
 		static constexpr std::uint32_t MIN_OBJECT_LENGTH = 5; ///< The fewest bytes of IOP data that can represent this object
-		static const std::array<std::uint8_t, 31> ALLOWED_COMMANDS_LOOKUP_TABLE; ///< The list of all allowed commands in a table for easy lookup when validating macro content
+		static const std::array<std::uint8_t, 28> ALLOWED_COMMANDS_LOOKUP_TABLE; ///< The list of all allowed commands in a table for easy lookup when validating macro content
 		std::vector<std::vector<std::uint8_t>> commandPackets; ///< Macro command list
 	};
 
@@ -3910,7 +3912,7 @@ namespace isobus
 
 		/// @brief Returns the minimum binary serialized length of the associated object
 		/// @returns The minimum binary serialized length of the associated object
-		std::uint32_t get_minumum_object_length() const override;
+		std::uint32_t get_minimum_object_length() const override;
 
 		/// @brief Performs basic error checking on the object and returns if the object is valid
 		/// @param[in] objectPool The object pool to use when validating the object
@@ -4020,7 +4022,7 @@ namespace isobus
 
 		/// @brief Returns the minimum binary serialized length of the associated object
 		/// @returns The minimum binary serialized length of the associated object
-		std::uint32_t get_minumum_object_length() const override;
+		std::uint32_t get_minimum_object_length() const override;
 
 		/// @brief Performs basic error checking on the object and returns if the object is valid
 		/// @param[in] objectPool The object pool to use when validating the object
@@ -4141,7 +4143,7 @@ namespace isobus
 
 		/// @brief Returns the minimum binary serialized length of the associated object
 		/// @returns The minimum binary serialized length of the associated object
-		std::uint32_t get_minumum_object_length() const override;
+		std::uint32_t get_minimum_object_length() const override;
 
 		/// @brief Performs basic error checking on the object and returns if the object is valid
 		/// @param[in] objectPool The object pool to use when validating the object
@@ -4237,7 +4239,7 @@ namespace isobus
 
 		/// @brief Returns the minimum binary serialized length of the associated object
 		/// @returns The minimum binary serialized length of the associated object
-		std::uint32_t get_minumum_object_length() const override;
+		std::uint32_t get_minimum_object_length() const override;
 
 		/// @brief Performs basic error checking on the object and returns if the object is valid
 		/// @param[in] objectPool The object pool to use when validating the object
@@ -4320,7 +4322,7 @@ namespace isobus
 
 		/// @brief Returns the minimum binary serialized length of the associated object
 		/// @returns The minimum binary serialized length of the associated object
-		std::uint32_t get_minumum_object_length() const override;
+		std::uint32_t get_minimum_object_length() const override;
 
 		/// @brief Performs basic error checking on the object and returns if the object is valid
 		/// @param[in] objectPool The object pool to use when validating the object
@@ -4406,7 +4408,7 @@ namespace isobus
 
 		/// @brief Returns the minimum binary serialized length of the associated object
 		/// @returns The minimum binary serialized length of the associated object
-		std::uint32_t get_minumum_object_length() const override;
+		std::uint32_t get_minimum_object_length() const override;
 
 		/// @brief Performs basic error checking on the object and returns if the object is valid
 		/// @param[in] objectPool The object pool to use when validating the object
@@ -4482,7 +4484,7 @@ namespace isobus
 
 		/// @brief Returns the minimum binary serialized length of the associated object
 		/// @returns The minimum binary serialized length of the associated object
-		std::uint32_t get_minumum_object_length() const override;
+		std::uint32_t get_minimum_object_length() const override;
 
 		/// @brief Performs basic error checking on the object and returns if the object is valid
 		/// @param[in] objectPool The object pool to use when validating the object

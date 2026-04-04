@@ -266,7 +266,7 @@ namespace isobus
 		return VirtualTerminalObjectType::WorkingSet;
 	}
 
-	std::uint32_t WorkingSet::get_minumum_object_length() const
+	std::uint32_t WorkingSet::get_minimum_object_length() const
 	{
 		return MIN_OBJECT_LENGTH;
 	}
@@ -427,7 +427,7 @@ namespace isobus
 		return VirtualTerminalObjectType::DataMask;
 	}
 
-	std::uint32_t DataMask::get_minumum_object_length() const
+	std::uint32_t DataMask::get_minimum_object_length() const
 	{
 		return MIN_OBJECT_LENGTH;
 	}
@@ -609,7 +609,7 @@ namespace isobus
 		return VirtualTerminalObjectType::AlarmMask;
 	}
 
-	std::uint32_t AlarmMask::get_minumum_object_length() const
+	std::uint32_t AlarmMask::get_minimum_object_length() const
 	{
 		return MIN_OBJECT_LENGTH;
 	}
@@ -838,7 +838,7 @@ namespace isobus
 		return VirtualTerminalObjectType::Container;
 	}
 
-	std::uint32_t Container::get_minumum_object_length() const
+	std::uint32_t Container::get_minimum_object_length() const
 	{
 		return MIN_OBJECT_LENGTH;
 	}
@@ -965,7 +965,7 @@ namespace isobus
 		return VirtualTerminalObjectType::SoftKeyMask;
 	}
 
-	std::uint32_t SoftKeyMask::get_minumum_object_length() const
+	std::uint32_t SoftKeyMask::get_minimum_object_length() const
 	{
 		return MIN_OBJECT_LENGTH;
 	}
@@ -1068,7 +1068,7 @@ namespace isobus
 		return VirtualTerminalObjectType::Key;
 	}
 
-	std::uint32_t Key::get_minumum_object_length() const
+	std::uint32_t Key::get_minimum_object_length() const
 	{
 		return MIN_OBJECT_LENGTH;
 	}
@@ -1209,7 +1209,7 @@ namespace isobus
 		return VirtualTerminalObjectType::KeyGroup;
 	}
 
-	std::uint32_t KeyGroup::get_minumum_object_length() const
+	std::uint32_t KeyGroup::get_minimum_object_length() const
 	{
 		return MIN_OBJECT_LENGTH;
 	}
@@ -1447,7 +1447,7 @@ namespace isobus
 		return VirtualTerminalObjectType::Button;
 	}
 
-	std::uint32_t Button::get_minumum_object_length() const
+	std::uint32_t Button::get_minimum_object_length() const
 	{
 		return MIN_OBJECT_LENGTH;
 	}
@@ -1675,7 +1675,7 @@ namespace isobus
 		return VirtualTerminalObjectType::InputBoolean;
 	}
 
-	std::uint32_t InputBoolean::get_minumum_object_length() const
+	std::uint32_t InputBoolean::get_minimum_object_length() const
 	{
 		return MIN_OBJECT_LENGTH;
 	}
@@ -1963,7 +1963,7 @@ namespace isobus
 		return VirtualTerminalObjectType::InputString;
 	}
 
-	std::uint32_t InputString::get_minumum_object_length() const
+	std::uint32_t InputString::get_minimum_object_length() const
 	{
 		return MIN_OBJECT_LENGTH;
 	}
@@ -2295,7 +2295,7 @@ namespace isobus
 		return VirtualTerminalObjectType::InputNumber;
 	}
 
-	std::uint32_t InputNumber::get_minumum_object_length() const
+	std::uint32_t InputNumber::get_minimum_object_length() const
 	{
 		return MIN_OBJECT_LENGTH;
 	}
@@ -2722,7 +2722,7 @@ namespace isobus
 		return VirtualTerminalObjectType::InputList;
 	}
 
-	std::uint32_t InputList::get_minumum_object_length() const
+	std::uint32_t InputList::get_minimum_object_length() const
 	{
 		return MIN_OBJECT_LENGTH;
 	}
@@ -2978,7 +2978,7 @@ namespace isobus
 		return VirtualTerminalObjectType::OutputString;
 	}
 
-	std::uint32_t OutputString::get_minumum_object_length() const
+	std::uint32_t OutputString::get_minimum_object_length() const
 	{
 		return MIN_OBJECT_LENGTH;
 	}
@@ -3240,7 +3240,7 @@ namespace isobus
 		return VirtualTerminalObjectType::OutputNumber;
 	}
 
-	std::uint32_t OutputNumber::get_minumum_object_length() const
+	std::uint32_t OutputNumber::get_minimum_object_length() const
 	{
 		return MIN_OBJECT_LENGTH;
 	}
@@ -3576,7 +3576,7 @@ namespace isobus
 		return VirtualTerminalObjectType::OutputList;
 	}
 
-	std::uint32_t OutputList::get_minumum_object_length() const
+	std::uint32_t OutputList::get_minimum_object_length() const
 	{
 		return MIN_OBJECT_LENGTH;
 	}
@@ -3963,7 +3963,7 @@ namespace isobus
 		return retVal;
 	}
 
-	std::uint32_t OutputLine::get_minumum_object_length() const
+	std::uint32_t OutputLine::get_minimum_object_length() const
 	{
 		return MIN_OBJECT_LENGTH;
 	}
@@ -3993,7 +3993,7 @@ namespace isobus
 		return VirtualTerminalObjectType::OutputRectangle;
 	}
 
-	std::uint32_t OutputRectangle::get_minumum_object_length() const
+	std::uint32_t OutputRectangle::get_minimum_object_length() const
 	{
 		return MIN_OBJECT_LENGTH;
 	}
@@ -4226,7 +4226,7 @@ namespace isobus
 		return VirtualTerminalObjectType::OutputEllipse;
 	}
 
-	std::uint32_t OutputEllipse::get_minumum_object_length() const
+	std::uint32_t OutputEllipse::get_minimum_object_length() const
 	{
 		return MIN_OBJECT_LENGTH;
 	}
@@ -4514,7 +4514,7 @@ namespace isobus
 		return VirtualTerminalObjectType::OutputPolygon;
 	}
 
-	std::uint32_t OutputPolygon::get_minumum_object_length() const
+	std::uint32_t OutputPolygon::get_minimum_object_length() const
 	{
 		return MIN_OBJECT_LENGTH;
 	}
@@ -4788,7 +4788,7 @@ namespace isobus
 		return VirtualTerminalObjectType::OutputMeter;
 	}
 
-	std::uint32_t OutputMeter::get_minumum_object_length() const
+	std::uint32_t OutputMeter::get_minimum_object_length() const
 	{
 		return MIN_OBJECT_LENGTH;
 	}
@@ -5172,7 +5172,7 @@ namespace isobus
 		return VirtualTerminalObjectType::OutputLinearBarGraph;
 	}
 
-	std::uint32_t OutputLinearBarGraph::get_minumum_object_length() const
+	std::uint32_t OutputLinearBarGraph::get_minimum_object_length() const
 	{
 		return MIN_OBJECT_LENGTH;
 	}
@@ -5564,7 +5564,7 @@ namespace isobus
 		return VirtualTerminalObjectType::OutputArchedBarGraph;
 	}
 
-	std::uint32_t OutputArchedBarGraph::get_minumum_object_length() const
+	std::uint32_t OutputArchedBarGraph::get_minimum_object_length() const
 	{
 		return MIN_OBJECT_LENGTH;
 	}
@@ -5990,7 +5990,7 @@ namespace isobus
 		return VirtualTerminalObjectType::PictureGraphic;
 	}
 
-	std::uint32_t PictureGraphic::get_minumum_object_length() const
+	std::uint32_t PictureGraphic::get_minimum_object_length() const
 	{
 		return MIN_OBJECT_LENGTH;
 	}
@@ -6212,7 +6212,7 @@ namespace isobus
 		return VirtualTerminalObjectType::NumberVariable;
 	}
 
-	std::uint32_t NumberVariable::get_minumum_object_length() const
+	std::uint32_t NumberVariable::get_minimum_object_length() const
 	{
 		return MIN_OBJECT_LENGTH;
 	}
@@ -6275,7 +6275,7 @@ namespace isobus
 		return VirtualTerminalObjectType::StringVariable;
 	}
 
-	std::uint32_t StringVariable::get_minumum_object_length() const
+	std::uint32_t StringVariable::get_minimum_object_length() const
 	{
 		return MIN_OBJECT_LENGTH;
 	}
@@ -6331,7 +6331,7 @@ namespace isobus
 		return VirtualTerminalObjectType::FontAttributes;
 	}
 
-	std::uint32_t FontAttributes::get_minumum_object_length() const
+	std::uint32_t FontAttributes::get_minimum_object_length() const
 	{
 		return MIN_OBJECT_LENGTH;
 	}
@@ -6660,7 +6660,7 @@ namespace isobus
 		return VirtualTerminalObjectType::LineAttributes;
 	}
 
-	std::uint32_t LineAttributes::get_minumum_object_length() const
+	std::uint32_t LineAttributes::get_minimum_object_length() const
 	{
 		return MIN_OBJECT_LENGTH;
 	}
@@ -6774,7 +6774,7 @@ namespace isobus
 		return VirtualTerminalObjectType::FillAttributes;
 	}
 
-	std::uint32_t FillAttributes::get_minumum_object_length() const
+	std::uint32_t FillAttributes::get_minimum_object_length() const
 	{
 		return MIN_OBJECT_LENGTH;
 	}
@@ -6922,7 +6922,7 @@ namespace isobus
 		return VirtualTerminalObjectType::InputAttributes;
 	}
 
-	std::uint32_t InputAttributes::get_minumum_object_length() const
+	std::uint32_t InputAttributes::get_minimum_object_length() const
 	{
 		return MIN_OBJECT_LENGTH;
 	}
@@ -6995,7 +6995,7 @@ namespace isobus
 		return VirtualTerminalObjectType::ExtendedInputAttributes;
 	}
 
-	std::uint32_t ExtendedInputAttributes::get_minumum_object_length() const
+	std::uint32_t ExtendedInputAttributes::get_minimum_object_length() const
 	{
 		return MIN_OBJECT_LENGTH;
 	}
@@ -7068,7 +7068,7 @@ namespace isobus
 		return VirtualTerminalObjectType::ObjectPointer;
 	}
 
-	std::uint32_t ObjectPointer::get_minumum_object_length() const
+	std::uint32_t ObjectPointer::get_minimum_object_length() const
 	{
 		return MIN_OBJECT_LENGTH;
 	}
@@ -7137,7 +7137,7 @@ namespace isobus
 		return VirtualTerminalObjectType::ExternalObjectPointer;
 	}
 
-	std::uint32_t ExternalObjectPointer::get_minumum_object_length() const
+	std::uint32_t ExternalObjectPointer::get_minimum_object_length() const
 	{
 		return 9;
 	}
@@ -7304,16 +7304,16 @@ namespace isobus
 		static_cast<std::uint8_t>(Command::ChangeAttribute),
 		static_cast<std::uint8_t>(Command::ChangePriority),
 		static_cast<std::uint8_t>(Command::ChangeListItem),
-		static_cast<std::uint8_t>(Command::DeleteObjectPool),		
+		///static_cast<std::uint8_t>(Command::DeleteObjectPool),		
 		static_cast<std::uint8_t>(Command::ChangeStringValue),
 		static_cast<std::uint8_t>(Command::ChangeChildPosition),
 		static_cast<std::uint8_t>(Command::ChangeObjectLabel),
 		static_cast<std::uint8_t>(Command::ChangePolygonPoint),
 		static_cast<std::uint8_t>(Command::ChangePolygonScale),
 		static_cast<std::uint8_t>(Command::GraphicsContextCommand),
-		static_cast<std::uint8_t>(Command::GetAttribute),
+		///static_cast<std::uint8_t>(Command::GetAttribute),
 		static_cast<std::uint8_t>(Command::SelectColourMap),
-		static_cast<std::uint8_t>(Command::IdentifyVTMessage),
+		///static_cast<std::uint8_t>(Command::IdentifyVTMessage),
 		static_cast<std::uint8_t>(Command::ExecuteExtendedMacro),
 		static_cast<std::uint8_t>(Command::LockUnlockMask),
 		static_cast<std::uint8_t>(Command::ExecuteMacro)
@@ -7324,7 +7324,7 @@ namespace isobus
 		return VirtualTerminalObjectType::Macro;
 	}
 
-	std::uint32_t Macro::get_minumum_object_length() const
+	std::uint32_t Macro::get_minimum_object_length() const
 	{
 		return MIN_OBJECT_LENGTH;
 	}
@@ -7441,7 +7441,7 @@ namespace isobus
 		return VirtualTerminalObjectType::ColourMap;
 	}
 
-	std::uint32_t ColourMap::get_minumum_object_length() const
+	std::uint32_t ColourMap::get_minimum_object_length() const
 	{
 		return MIN_OBJECT_LENGTH;
 	}
@@ -7536,7 +7536,7 @@ namespace isobus
 		return VirtualTerminalObjectType::WindowMask;
 	}
 
-	std::uint32_t WindowMask::get_minumum_object_length() const
+	std::uint32_t WindowMask::get_minimum_object_length() const
 	{
 		return MIN_OBJECT_LENGTH;
 	}
@@ -8057,7 +8057,7 @@ namespace isobus
 		return VirtualTerminalObjectType::AuxiliaryFunctionType1;
 	}
 
-	std::uint32_t AuxiliaryFunctionType1::get_minumum_object_length() const
+	std::uint32_t AuxiliaryFunctionType1::get_minimum_object_length() const
 	{
 		return 6;
 	}
@@ -8136,7 +8136,7 @@ namespace isobus
 		return VirtualTerminalObjectType::AuxiliaryFunctionType2;
 	}
 
-	std::uint32_t AuxiliaryFunctionType2::get_minumum_object_length() const
+	std::uint32_t AuxiliaryFunctionType2::get_minimum_object_length() const
 	{
 		return 6;
 	}
@@ -8272,7 +8272,7 @@ namespace isobus
 		return VirtualTerminalObjectType::AuxiliaryInputType1;
 	}
 
-	std::uint32_t AuxiliaryInputType1::get_minumum_object_length() const
+	std::uint32_t AuxiliaryInputType1::get_minimum_object_length() const
 	{
 		return 7;
 	}
@@ -8367,7 +8367,7 @@ namespace isobus
 		return VirtualTerminalObjectType::AuxiliaryInputType2;
 	}
 
-	std::uint32_t AuxiliaryInputType2::get_minumum_object_length() const
+	std::uint32_t AuxiliaryInputType2::get_minimum_object_length() const
 	{
 		return 6;
 	}
@@ -8516,7 +8516,7 @@ namespace isobus
 		return VirtualTerminalObjectType::AuxiliaryControlDesignatorType2;
 	}
 
-	std::uint32_t AuxiliaryControlDesignatorType2::get_minumum_object_length() const
+	std::uint32_t AuxiliaryControlDesignatorType2::get_minimum_object_length() const
 	{
 		return 6;
 	}

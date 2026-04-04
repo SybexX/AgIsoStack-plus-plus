@@ -81,7 +81,7 @@ namespace isobus
 						workingSetID = decodedID;
 						auto tempObject = std::make_shared<WorkingSet>();
 
-						if (iopLength >= tempObject->get_minumum_object_length())
+						if (iopLength >= tempObject->get_minimum_object_length())
 						{
 							tempObject->set_id(decodedID);
 							tempObject->set_background_color(iopData[3]);
@@ -158,7 +158,7 @@ namespace isobus
 				{
 					auto tempObject = std::make_shared<DataMask>();
 
-					if (iopLength >= tempObject->get_minumum_object_length())
+					if (iopLength >= tempObject->get_minimum_object_length())
 					{
 						tempObject->set_id(decodedID);
 						tempObject->set_background_color(iopData[3]);
@@ -206,7 +206,7 @@ namespace isobus
 				{
 					auto tempObject = std::make_shared<AlarmMask>();
 
-					if (iopLength >= tempObject->get_minumum_object_length())
+					if (iopLength >= tempObject->get_minimum_object_length())
 					{
 						tempObject->set_id(decodedID);
 						tempObject->set_background_color(iopData[3]);
@@ -277,7 +277,7 @@ namespace isobus
 				{
 					auto tempObject = std::make_shared<Container>();
 
-					if (iopLength >= tempObject->get_minumum_object_length())
+					if (iopLength >= tempObject->get_minimum_object_length())
 					{
 						tempObject->set_id(decodedID);
 						tempObject->set_width((static_cast<std::uint16_t>(iopData[3]) | (static_cast<std::uint16_t>(iopData[4]) << 8)));
@@ -334,7 +334,7 @@ namespace isobus
 				{
 					auto tempObject = std::make_shared<WindowMask>();
 
-					if (iopLength >= tempObject->get_minumum_object_length())
+					if (iopLength >= tempObject->get_minimum_object_length())
 					{
 						retVal = true;
 						tempObject->set_id(decodedID);
@@ -428,8 +428,8 @@ namespace isobus
 								break;
 							}
 
-							iopLength -= tempObject->get_minumum_object_length(); // Subtract the bytes we've processed so far.
-							iopData += tempObject->get_minumum_object_length(); // Move the pointer
+							iopLength -= tempObject->get_minimum_object_length(); // Subtract the bytes we've processed so far.
+							iopData += tempObject->get_minimum_object_length(); // Move the pointer
 
 							if (iopLength >= static_cast<std::uint32_t>(2 * numberOfObjectReferences))
 							{
@@ -485,7 +485,7 @@ namespace isobus
 				{
 					auto tempObject = std::make_shared<SoftKeyMask>();
 
-					if (iopLength >= tempObject->get_minumum_object_length())
+					if (iopLength >= tempObject->get_minimum_object_length())
 					{
 						tempObject->set_id(decodedID);
 						tempObject->set_background_color(iopData[3]);
@@ -532,7 +532,7 @@ namespace isobus
 				{
 					auto tempObject = std::make_shared<Key>();
 
-					if (iopLength >= tempObject->get_minumum_object_length())
+					if (iopLength >= tempObject->get_minimum_object_length())
 					{
 						tempObject->set_id(decodedID);
 						tempObject->set_background_color(iopData[3]);
@@ -581,7 +581,7 @@ namespace isobus
 				{
 					auto tempObject = std::make_shared<Button>();
 
-					if (iopLength >= tempObject->get_minumum_object_length())
+					if (iopLength >= tempObject->get_minimum_object_length())
 					{
 						tempObject->set_id(decodedID);
 						tempObject->set_width((static_cast<std::uint16_t>(iopData[3]) | (static_cast<std::uint16_t>(iopData[4]) << 8)));
@@ -634,7 +634,7 @@ namespace isobus
 				{
 					auto tempObject = std::make_shared<KeyGroup>();
 
-					if (iopLength >= tempObject->get_minumum_object_length())
+					if (iopLength >= tempObject->get_minimum_object_length())
 					{
 						tempObject->set_id(decodedID);
 						tempObject->set_options(iopData[3]);
@@ -692,7 +692,7 @@ namespace isobus
 				{
 					auto tempObject = std::make_shared<InputBoolean>();
 
-					if (iopLength >= tempObject->get_minumum_object_length())
+					if (iopLength >= tempObject->get_minimum_object_length())
 					{
 						tempObject->set_id(decodedID);
 						tempObject->set_background_color(iopData[3]);
@@ -728,7 +728,7 @@ namespace isobus
 				{
 					auto tempObject = std::make_shared<InputString>();
 
-					if (iopLength >= tempObject->get_minumum_object_length())
+					if (iopLength >= tempObject->get_minimum_object_length())
 					{
 						tempObject->set_id(decodedID);
 						tempObject->set_width((static_cast<std::uint16_t>(iopData[3]) | (static_cast<std::uint16_t>(iopData[4]) << 8)));
@@ -787,7 +787,7 @@ namespace isobus
 				{
 					auto tempObject = std::make_shared<InputNumber>();
 
-					if (iopLength >= tempObject->get_minumum_object_length())
+					if (iopLength >= tempObject->get_minimum_object_length())
 					{
 						tempObject->set_id(decodedID);
 						tempObject->set_width((static_cast<std::uint16_t>(iopData[3]) | (static_cast<std::uint16_t>(iopData[4]) << 8)));
@@ -856,7 +856,7 @@ namespace isobus
 				{
 					auto tempObject = std::make_shared<InputList>();
 
-					if (iopLength >= tempObject->get_minumum_object_length())
+					if (iopLength >= tempObject->get_minimum_object_length())
 					{
 						tempObject->set_id(decodedID);
 						tempObject->set_width((static_cast<std::uint16_t>(iopData[3]) | (static_cast<std::uint16_t>(iopData[4]) << 8)));
@@ -908,7 +908,7 @@ namespace isobus
 				{
 					auto tempObject = std::make_shared<OutputString>();
 
-					if (iopLength >= tempObject->get_minumum_object_length())
+					if (iopLength >= tempObject->get_minimum_object_length())
 					{
 						tempObject->set_id(decodedID);
 						tempObject->set_width((static_cast<std::uint16_t>(iopData[3]) | (static_cast<std::uint16_t>(iopData[4]) << 8)));
@@ -963,7 +963,7 @@ namespace isobus
 				{
 					auto tempObject = std::make_shared<OutputNumber>();
 
-					if (iopLength >= tempObject->get_minumum_object_length())
+					if (iopLength >= tempObject->get_minimum_object_length())
 					{
 						tempObject->set_id(decodedID);
 						tempObject->set_width((static_cast<std::uint16_t>(iopData[3]) | (static_cast<std::uint16_t>(iopData[4]) << 8)));
@@ -1024,7 +1024,7 @@ namespace isobus
 				{
 					auto tempObject = std::make_shared<OutputList>();
 
-					if (iopLength >= tempObject->get_minumum_object_length())
+					if (iopLength >= tempObject->get_minimum_object_length())
 					{
 						tempObject->set_id(decodedID);
 						tempObject->set_width((static_cast<std::uint16_t>(iopData[3]) | (static_cast<std::uint16_t>(iopData[4]) << 8)));
@@ -1071,7 +1071,7 @@ namespace isobus
 				{
 					auto tempObject = std::make_shared<OutputLine>();
 
-					if (iopLength >= tempObject->get_minumum_object_length())
+					if (iopLength >= tempObject->get_minimum_object_length())
 					{
 						tempObject->set_id(decodedID);
 						tempObject->set_line_attributes((static_cast<std::uint16_t>(iopData[3]) | (static_cast<std::uint16_t>(iopData[4]) << 8)));
@@ -1113,7 +1113,7 @@ namespace isobus
 				{
 					auto tempObject = std::make_shared<OutputRectangle>();
 
-					if (iopLength >= tempObject->get_minumum_object_length())
+					if (iopLength >= tempObject->get_minimum_object_length())
 					{
 						tempObject->set_id(decodedID);
 						tempObject->set_line_attributes((static_cast<std::uint16_t>(iopData[3]) | (static_cast<std::uint16_t>(iopData[4]) << 8)));
@@ -1147,7 +1147,7 @@ namespace isobus
 				{
 					auto tempObject = std::make_shared<OutputEllipse>();
 
-					if (iopLength >= tempObject->get_minumum_object_length())
+					if (iopLength >= tempObject->get_minimum_object_length())
 					{
 						tempObject->set_id(decodedID);
 						tempObject->set_line_attributes((static_cast<std::uint16_t>(iopData[3]) | (static_cast<std::uint16_t>(iopData[4]) << 8)));
@@ -1191,7 +1191,7 @@ namespace isobus
 				{
 					auto tempObject = std::make_shared<OutputPolygon>();
 
-					if (iopLength >= tempObject->get_minumum_object_length())
+					if (iopLength >= tempObject->get_minimum_object_length())
 					{
 						tempObject->set_id(decodedID);
 						tempObject->set_width((static_cast<std::uint16_t>(iopData[3]) | (static_cast<std::uint16_t>(iopData[4]) << 8)));
@@ -1250,7 +1250,7 @@ namespace isobus
 				{
 					auto tempObject = std::make_shared<OutputMeter>();
 
-					if (iopLength >= tempObject->get_minumum_object_length())
+					if (iopLength >= tempObject->get_minimum_object_length())
 					{
 						tempObject->set_id(decodedID);
 						tempObject->set_width((static_cast<std::uint16_t>(iopData[3]) | (static_cast<std::uint16_t>(iopData[4]) << 8)));
@@ -1288,7 +1288,7 @@ namespace isobus
 				{
 					auto tempObject = std::make_shared<OutputLinearBarGraph>();
 
-					if (iopLength >= tempObject->get_minumum_object_length())
+					if (iopLength >= tempObject->get_minimum_object_length())
 					{
 						tempObject->set_id(decodedID);
 						tempObject->set_width((static_cast<std::uint16_t>(iopData[3]) | (static_cast<std::uint16_t>(iopData[4]) << 8)));
@@ -1325,7 +1325,7 @@ namespace isobus
 				{
 					auto tempObject = std::make_shared<OutputArchedBarGraph>();
 
-					if (iopLength >= tempObject->get_minumum_object_length())
+					if (iopLength >= tempObject->get_minimum_object_length())
 					{
 						tempObject->set_id(decodedID);
 						tempObject->set_width((static_cast<std::uint16_t>(iopData[3]) | (static_cast<std::uint16_t>(iopData[4]) << 8)));
@@ -1376,7 +1376,7 @@ namespace isobus
 				{
 					auto tempObject = std::make_shared<PictureGraphic>();
 
-					if (iopLength >= tempObject->get_minumum_object_length())
+					if (iopLength >= tempObject->get_minimum_object_length())
 					{
 						tempObject->set_id(decodedID);
 						tempObject->set_width((static_cast<std::uint16_t>(iopData[3]) | (static_cast<std::uint16_t>(iopData[4]) << 8)));
@@ -1580,7 +1580,7 @@ namespace isobus
 				{
 					auto tempObject = std::make_shared<NumberVariable>();
 
-					if (iopLength >= tempObject->get_minumum_object_length())
+					if (iopLength >= tempObject->get_minimum_object_length())
 					{
 						tempObject->set_id(decodedID);
 						tempObject->set_value(static_cast<std::uint32_t>(iopData[3]) |
@@ -1607,7 +1607,7 @@ namespace isobus
 				{
 					auto tempObject = std::make_shared<StringVariable>();
 
-					if (iopLength >= tempObject->get_minumum_object_length())
+					if (iopLength >= tempObject->get_minimum_object_length())
 					{
 						tempObject->set_id(decodedID);
 
@@ -1650,7 +1650,7 @@ namespace isobus
 				{
 					auto tempObject = std::make_shared<FontAttributes>();
 
-					if (iopLength >= tempObject->get_minumum_object_length())
+					if (iopLength >= tempObject->get_minimum_object_length())
 					{
 						tempObject->set_id(decodedID);
 						tempObject->set_colour(iopData[3]);
@@ -1690,7 +1690,7 @@ namespace isobus
 				{
 					auto tempObject = std::make_shared<LineAttributes>();
 
-					if (iopLength >= tempObject->get_minumum_object_length())
+					if (iopLength >= tempObject->get_minimum_object_length())
 					{
 						tempObject->set_id(decodedID);
 						tempObject->set_background_color(iopData[3]);
@@ -1719,7 +1719,7 @@ namespace isobus
 				{
 					auto tempObject = std::make_shared<FillAttributes>();
 
-					if (iopLength >= tempObject->get_minumum_object_length())
+					if (iopLength >= tempObject->get_minimum_object_length())
 					{
 						tempObject->set_id(decodedID);
 
@@ -1756,7 +1756,7 @@ namespace isobus
 				{
 					auto tempObject = std::make_shared<InputAttributes>();
 
-					if (iopLength >= tempObject->get_minumum_object_length())
+					if (iopLength >= tempObject->get_minimum_object_length())
 					{
 						tempObject->set_id(decodedID);
 
@@ -1815,7 +1815,7 @@ namespace isobus
 				{
 					auto tempObject = std::make_shared<ExtendedInputAttributes>();
 
-					if (iopLength >= tempObject->get_minumum_object_length())
+					if (iopLength >= tempObject->get_minimum_object_length())
 					{
 						tempObject->set_id(decodedID);
 
@@ -1849,7 +1849,7 @@ namespace isobus
 				{
 					auto tempObject = std::make_shared<ColourMap>();
 
-					if (iopLength >= tempObject->get_minumum_object_length())
+					if (iopLength >= tempObject->get_minimum_object_length())
 					{
 						tempObject->set_id(decodedID);
 						std::uint16_t numberOfIndexes = static_cast<std::uint16_t>(iopData[3]) | (static_cast<std::uint16_t>(iopData[4]) << 8);
@@ -1896,7 +1896,7 @@ namespace isobus
 				{
 					auto tempObject = std::make_shared<ObjectPointer>();
 
-					if (iopLength >= tempObject->get_minumum_object_length())
+					if (iopLength >= tempObject->get_minimum_object_length())
 					{
 						tempObject->set_id(decodedID);
 						tempObject->set_value((static_cast<std::uint16_t>(iopData[3]) | (static_cast<std::uint16_t>(iopData[4]) << 8)));
@@ -1938,7 +1938,7 @@ namespace isobus
 				{
 					auto tempObject = std::make_shared<Macro>();
 
-					if (iopLength >= tempObject->get_minumum_object_length())
+					if (iopLength >= tempObject->get_minimum_object_length())
 					{
 						tempObject->set_id(decodedID);
 
@@ -2046,7 +2046,7 @@ namespace isobus
 
 					LOG_WARNING("[WS]: Deserializing an Aux function type 1 object. This object is parsed and validated but NOT utilized by version 3 or later VTs in making Auxiliary Control Assignments.");
 
-					if (iopLength >= tempObject->get_minumum_object_length())
+					if (iopLength >= tempObject->get_minimum_object_length())
 					{
 						tempObject->set_id(decodedID);
 						tempObject->set_background_color(iopData[3]);
@@ -2102,7 +2102,7 @@ namespace isobus
 
 					LOG_WARNING("[WS]: Deserializing an Aux input type 1 object. This object is parsed and validated but NOT utilized by version 3 or later VTs in making Auxiliary Control Assignments.");
 
-					if (iopLength >= tempObject->get_minumum_object_length())
+					if (iopLength >= tempObject->get_minimum_object_length())
 					{
 						tempObject->set_id(decodedID);
 						tempObject->set_background_color(iopData[3]);
@@ -2165,7 +2165,7 @@ namespace isobus
 				{
 					auto tempObject = std::make_shared<AuxiliaryFunctionType2>();
 
-					if (iopLength >= tempObject->get_minumum_object_length())
+					if (iopLength >= tempObject->get_minimum_object_length())
 					{
 						tempObject->set_id(decodedID);
 						tempObject->set_background_color(iopData[3]);
@@ -2226,7 +2226,7 @@ namespace isobus
 				{
 					auto tempObject = std::make_shared<AuxiliaryInputType2>();
 
-					if (iopLength >= tempObject->get_minumum_object_length())
+					if (iopLength >= tempObject->get_minimum_object_length())
 					{
 						tempObject->set_id(decodedID);
 						tempObject->set_background_color(iopData[3]);
@@ -2290,7 +2290,7 @@ namespace isobus
 				{
 					auto tempObject = std::make_shared<AuxiliaryControlDesignatorType2>();
 
-					if (iopLength >= tempObject->get_minumum_object_length())
+					if (iopLength >= tempObject->get_minimum_object_length())
 					{
 						tempObject->set_id(decodedID);
 
