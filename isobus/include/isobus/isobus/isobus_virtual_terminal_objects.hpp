@@ -3776,37 +3776,42 @@ namespace isobus
 		};
 
 		/// @brief A subset of the VT command multiplexors that support use in macros
-		enum class Command
+		enum class Command : std::uint8_t
 		{
-			HideShowObject = 0xA0,
-			EnableDisableObject = 0xA1,
-			SelectInputObject = 0xA2,
-			ControlAudioSignal = 0xA3,
-			SetAudioVolume = 0xA4,
-			ChangeChildLocation = 0xA5,
-			ChangeSize = 0xA6,
-			ChangeBackgroundColour = 0xA7,
-			ChangeNumericValue = 0xA8,
-			ChangeEndPoint = 0xA9,
-			ChangeFontAttributes = 0xAA,
-			ChangeLineAttributes = 0xAB,
-			ChangeFillAttributes = 0xAC,
-			ChangeActiveMask = 0xAD,
-			ChangeSoftKeyMask = 0xAE,
-			ChangeAttribute = 0xAF,
-			ChangePriority = 0xB0,
-			ChangeListItem = 0xB1,
-			ChangeStringValue = 0xB2,
-			ChangeChildPosition = 0xB3,
-			ChangeObjectLabel = 0xB4,
-			ChangePolygonPoint = 0xB5,
-			ChangePolygonScale = 0xB6,
-			GraphicsContext = 0xB7,
-			GetAttribute = 0xB8,
-			SelectColourMap = 0xB9,
-			ExecuteExtendedMacro = 0xBA,
-			LockUnlockMask = 0xBB,
-			ExecuteMacro = 0xBC
+			// 0xA0–0xAF: Makro-kompatibel
+			HideShowObject         = 0xA0, ///< Show or hide an object
+			EnableDisableObject    = 0xA1, ///< Enable or disable an object
+			SelectInputObject      = 0xA2, ///< Select an input object
+			ControlAudioSignal     = 0xA3, ///< Control audio output or signal
+			SetAudioVolume         = 0xA4, ///< Set audio volume level
+			ChangeChildLocation    = 0xA5, ///< Move a child object
+			ChangeSize             = 0xA6, ///< Change object size
+			ChangeBackgroundColour = 0xA7, ///< Change background color
+			ChangeNumericValue     = 0xA8, ///< Update numeric value
+			ChangeEndPoint         = 0xA9, ///< Update end point
+			ChangeFontAttributes   = 0xAA, ///< Update font attributes
+			ChangeLineAttributes   = 0xAB, ///< Update line attributes
+			ChangeFillAttributes   = 0xAC, ///< Update fill attributes
+			ChangeActiveMask       = 0xAD, ///< Update active mask
+			ChangeSoftKeyMask      = 0xAE, ///< Update soft key mask
+			ChangeAttribute        = 0xAF, ///< Change generic attribute
+
+			// 0xB0–0xBE: Makro-kompatibel / Reserved
+			ChangePriority         = 0xB0, ///< Change mask priority
+			ChangeListItem         = 0xB1, ///< Update list item
+			DeleteObjectPool       = 0xB2, ///< Reserved / Delete object pool
+			ChangeStringValue      = 0xB3, ///< Update string value
+			ChangeChildPosition    = 0xB4, ///< Move child object
+			ChangeObjectLabel      = 0xB5, ///< Change object label
+			ChangePolygonPoint     = 0xB6, ///< Update polygon point
+			ChangePolygonScale     = 0xB7, ///< Scale polygon
+			GraphicsContextCommand = 0xB8, ///< Change graphics context
+			GetAttribute           = 0xB9, ///< Reserved / Get attribute value
+			SelectColourMap        = 0xBA, ///< Change color map
+			IdentifyVTMessage      = 0xBB, ///< Reserved / Identify VT
+			ExecuteExtendedMacro   = 0xBC, ///< Execute extended macro
+			LockUnlockMask         = 0xBD, ///< Lock or unlock mask
+			ExecuteMacro           = 0xBE  ///< Execute macro
 		};
 
 		/// @brief Constructor for a macro object
