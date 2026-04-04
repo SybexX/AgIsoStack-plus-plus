@@ -7285,7 +7285,7 @@ namespace isobus
 		externalObjectID = id;
 	}
 
-	const std::array<std::uint8_t, 31> Macro::ALLOWED_COMMANDS_LOOKUP_TABLE = {
+	const std::array<std::uint8_t, 28> Macro::ALLOWED_COMMANDS_LOOKUP_TABLE = {
 		static_cast<std::uint8_t>(Command::HideShowObject),
 		static_cast<std::uint8_t>(Command::EnableDisableObject),
 		static_cast<std::uint8_t>(Command::SelectInputObject),
