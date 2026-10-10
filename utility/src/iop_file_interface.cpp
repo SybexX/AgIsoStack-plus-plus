@@ -39,12 +39,12 @@ namespace isobus
 		return retVal;
 	}
 
-	std::string IOPFileInterface::hash_object_pool_to_version(std::vector<std::uint8_t> &iopData)
+	std::string IOPFileInterface::hash_object_pool_to_version(std::vector<std::uint8_t> &iopData, VersionType versionType)
 	{
-		return IOPFileInterface::hash_object_pool_to_version(iopData.data(), iopData.size());
+		return IOPFileInterface::hash_object_pool_to_version(iopData.data(), iopData.size(), versionType);
 	}
 
-	std::string IOPFileInterface::hash_object_pool_to_version(const std::uint8_t *iopData, std::size_t length)
+	std::string IOPFileInterface::hash_object_pool_to_version(const std::uint8_t *iopData, std::size_t length, VersionType versionType)
 	{
 		std::size_t seed = length;
 		std::stringstream stream;
@@ -57,7 +57,21 @@ namespace isobus
 			x = (x >> 16) ^ x;
 			seed ^= x + 0x9e3779b9 + (seed << 6) + (seed >> 2);
 		}
+
 		stream << std::hex << seed;
-		return stream.str();
+		std::string result = stream.str();
+
+		const std::size_t targetLength = (versionType == VersionType::Standard) ? 7 : 32;
+
+		if (result.size() > targetLength)
+		{
+			result.resize(targetLength);
+		}
+		else if (result.size() < targetLength)
+		{
+			result.insert(0, targetLength - result.size(), '0');
+		}
+
+		return result;
 	}
 }
