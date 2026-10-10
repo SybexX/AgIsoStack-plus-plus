@@ -41,9 +41,12 @@ bool SeederVtApplication::initialize()
 	std::cout << "Loaded object pool from BasePool.iop" << std::endl;
 
 	// Generate a unique version string for this object pool (this is optional, and is entirely application specific behavior)
-	std::string objectPoolHash = isobus::IOPFileInterface::hash_object_pool_to_version(objectPool);
-
+	// AgISOVirtualTerminal unterstützt nur die normalen Versionen "GetVersionsMessage = 0xDF", daher muß der String auf 7 Zeichen gekürzt/erweitert werden
+	// Wenn der objectPoolHash > 7 war, wurde "ExtendedGetVersionsMessage = 0xD3" gesendet 
+	// und dies landete dann in "case StateMachineState::WaitForGetVersionsResponse:" mit der dauerhaften Meldung "[VT]: Get Versions Response Timeout"
+	std::string objectPoolHash = isobus::IOPFileInterface::hash_object_pool_to_version(objectPool, isobus::IOPFileInterface::VersionType::Standard);
 	VTClientInterface->set_object_pool(0, objectPool.data(), static_cast<std::uint32_t>(objectPool.size()), objectPoolHash);
+	
 	VTClientInterface->get_vt_soft_key_event_dispatcher().add_listener([this](const isobus::VirtualTerminalClient::VTKeyEvent &event) { this->handle_vt_key_events(event); });
 	VTClientInterface->get_vt_button_event_dispatcher().add_listener([this](const isobus::VirtualTerminalClient::VTKeyEvent &event) { this->handle_vt_key_events(event); });
 	VTClientInterface->get_vt_change_numeric_value_event_dispatcher().add_listener([this](const isobus::VirtualTerminalClient::VTChangeNumericValueEvent &event) { this->handle_numeric_value_events(event); });
