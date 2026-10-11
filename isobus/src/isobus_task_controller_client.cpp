@@ -1936,12 +1936,16 @@ namespace isobus
 
 							requestData.ackRequested = false;
 							requestData.elementNumber = (static_cast<std::uint16_t>(messageData[0] >> 4) | (static_cast<std::uint16_t>(messageData[1]) << 4));
-							requestData.ddi = static_cast<std::uint16_t>(messageData[2]) |
-							  (static_cast<std::uint16_t>(messageData[3]) << 8);
-							requestData.processDataValue = (static_cast<std::int32_t>(messageData[4]) |
-							                                (static_cast<std::int32_t>(messageData[5]) << 8) |
-							                                (static_cast<std::int32_t>(messageData[6]) << 16) |
-							                                (static_cast<std::int32_t>(messageData[7]) << 24));
+							requestData.ddi = static_cast<std::uint16_t>(messageData[2]) | (static_cast<std::uint16_t>(messageData[3]) << 8);
+							
+							const std::uint32_t rawValue =
+								(static_cast<std::uint32_t>(messageData[4])) |
+								(static_cast<std::uint32_t>(messageData[5]) << 8) |
+								(static_cast<std::uint32_t>(messageData[6]) << 16) |
+								(static_cast<std::uint32_t>(messageData[7]) << 24);
+
+							requestData.processDataValue = static_cast<std::int32_t>(rawValue);
+							
 							parentTC->queuedValueRequests.push_back(requestData);
 
 							// Handle requests for default process data specially. Ask the app for all the defaults and send a response.
@@ -1968,12 +1972,16 @@ namespace isobus
 
 							requestData.ackRequested = false;
 							requestData.elementNumber = (static_cast<std::uint16_t>(messageData[0] >> 4) | (static_cast<std::uint16_t>(messageData[1]) << 4));
-							requestData.ddi = static_cast<std::uint16_t>(messageData[2]) |
-							  (static_cast<std::uint16_t>(messageData[3]) << 8);
-							requestData.processDataValue = (static_cast<std::int32_t>(messageData[4]) |
-							                                (static_cast<std::int32_t>(messageData[5]) << 8) |
-							                                (static_cast<std::int32_t>(messageData[6]) << 16) |
-							                                (static_cast<std::int32_t>(messageData[7]) << 24));
+							requestData.ddi = static_cast<std::uint16_t>(messageData[2]) | (static_cast<std::uint16_t>(messageData[3]) << 8);
+							
+							const std::uint32_t rawValue =
+								(static_cast<std::uint32_t>(messageData[4])) |
+								(static_cast<std::uint32_t>(messageData[5]) << 8) |
+								(static_cast<std::uint32_t>(messageData[6]) << 16) |
+								(static_cast<std::uint32_t>(messageData[7]) << 24);
+
+							requestData.processDataValue = static_cast<std::int32_t>(rawValue);
+							
 							parentTC->queuedValueCommands.push_back(requestData);
 						}
 						break;
@@ -1985,12 +1993,16 @@ namespace isobus
 
 							requestData.ackRequested = true;
 							requestData.elementNumber = (static_cast<std::uint16_t>(messageData[0] >> 4) | (static_cast<std::uint16_t>(messageData[1]) << 4));
-							requestData.ddi = static_cast<std::uint16_t>(messageData[2]) |
-							  (static_cast<std::uint16_t>(messageData[3]) << 8);
-							requestData.processDataValue = (static_cast<std::int32_t>(messageData[4]) |
-							                                (static_cast<std::int32_t>(messageData[5]) << 8) |
-							                                (static_cast<std::int32_t>(messageData[6]) << 16) |
-							                                (static_cast<std::int32_t>(messageData[7]) << 24));
+							requestData.ddi = static_cast<std::uint16_t>(messageData[2]) | (static_cast<std::uint16_t>(messageData[3]) << 8);
+							
+							const std::uint32_t rawValue =
+								(static_cast<std::uint32_t>(messageData[4])) |
+								(static_cast<std::uint32_t>(messageData[5]) << 8) |
+								(static_cast<std::uint32_t>(messageData[6]) << 16) |
+								(static_cast<std::uint32_t>(messageData[7]) << 24);
+
+							requestData.processDataValue = static_cast<std::int32_t>(rawValue);
+							
 							parentTC->queuedValueCommands.push_back(requestData);
 						}
 						break;
@@ -2001,12 +2013,16 @@ namespace isobus
 							LOCK_GUARD(Mutex, clientMutex);
 
 							commandData.elementNumber = (static_cast<std::uint16_t>(messageData[0] >> 4) | (static_cast<std::uint16_t>(messageData[1]) << 4));
-							commandData.ddi = static_cast<std::uint16_t>(messageData[2]) |
-							  (static_cast<std::uint16_t>(messageData[3]) << 8);
-							commandData.processDataValue = (static_cast<std::int32_t>(messageData[4]) |
-							                                (static_cast<std::int32_t>(messageData[5]) << 8) |
-							                                (static_cast<std::int32_t>(messageData[6]) << 16) |
-							                                (static_cast<std::int32_t>(messageData[7]) << 24));
+							commandData.ddi = static_cast<std::uint16_t>(messageData[2]) | (static_cast<std::uint16_t>(messageData[3]) << 8);
+							
+							const std::uint32_t rawValue =
+								(static_cast<std::uint32_t>(messageData[4])) |
+								(static_cast<std::uint32_t>(messageData[5]) << 8) |
+								(static_cast<std::uint32_t>(messageData[6]) << 16) |
+								(static_cast<std::uint32_t>(messageData[7]) << 24);
+
+							commandData.processDataValue = static_cast<std::int32_t>(rawValue);
+							
 							commandData.lastValue = static_cast<std::int32_t>(SystemTiming::get_timestamp_ms());
 							parentTC->add_measurement_time_interval(commandData);
 						}
@@ -2018,12 +2034,16 @@ namespace isobus
 							LOCK_GUARD(Mutex, clientMutex);
 
 							commandData.elementNumber = (static_cast<std::uint16_t>(messageData[0] >> 4) | (static_cast<std::uint16_t>(messageData[1]) << 4));
-							commandData.ddi = static_cast<std::uint16_t>(messageData[2]) |
-							  (static_cast<std::uint16_t>(messageData[3]) << 8);
-							commandData.processDataValue = (static_cast<std::int32_t>(messageData[4]) |
-							                                (static_cast<std::int32_t>(messageData[5]) << 8) |
-							                                (static_cast<std::int32_t>(messageData[6]) << 16) |
-							                                (static_cast<std::int32_t>(messageData[7]) << 24));
+							commandData.ddi = static_cast<std::uint16_t>(messageData[2]) | (static_cast<std::uint16_t>(messageData[3]) << 8);
+							
+							const std::uint32_t rawValue =
+								(static_cast<std::uint32_t>(messageData[4])) |
+								(static_cast<std::uint32_t>(messageData[5]) << 8) |
+								(static_cast<std::uint32_t>(messageData[6]) << 16) |
+								(static_cast<std::uint32_t>(messageData[7]) << 24);
+
+							commandData.processDataValue = static_cast<std::int32_t>(rawValue);
+							
 							parentTC->add_measurement_maximum_threshold(commandData);
 						}
 						break;
@@ -2034,12 +2054,16 @@ namespace isobus
 							LOCK_GUARD(Mutex, clientMutex);
 
 							commandData.elementNumber = (static_cast<std::uint16_t>(messageData[0] >> 4) | (static_cast<std::uint16_t>(messageData[1]) << 4));
-							commandData.ddi = static_cast<std::uint16_t>(messageData[2]) |
-							  (static_cast<std::uint16_t>(messageData[3]) << 8);
-							commandData.processDataValue = (static_cast<std::int32_t>(messageData[4]) |
-							                                (static_cast<std::int32_t>(messageData[5]) << 8) |
-							                                (static_cast<std::int32_t>(messageData[6]) << 16) |
-							                                (static_cast<std::int32_t>(messageData[7]) << 24));
+							commandData.ddi = static_cast<std::uint16_t>(messageData[2]) | (static_cast<std::uint16_t>(messageData[3]) << 8);
+							
+							const std::uint32_t rawValue =
+								(static_cast<std::uint32_t>(messageData[4])) |
+								(static_cast<std::uint32_t>(messageData[5]) << 8) |
+								(static_cast<std::uint32_t>(messageData[6]) << 16) |
+								(static_cast<std::uint32_t>(messageData[7]) << 24);
+
+							commandData.processDataValue = static_cast<std::int32_t>(rawValue);
+							
 							parentTC->add_measurement_minimum_threshold(commandData);
 						}
 						break;
@@ -2050,12 +2074,16 @@ namespace isobus
 							LOCK_GUARD(Mutex, clientMutex);
 
 							commandData.elementNumber = (static_cast<std::uint16_t>(messageData[0] >> 4) | (static_cast<std::uint16_t>(messageData[1]) << 4));
-							commandData.ddi = static_cast<std::uint16_t>(messageData[2]) |
-							  (static_cast<std::uint16_t>(messageData[3]) << 8);
-							commandData.processDataValue = (static_cast<std::int32_t>(messageData[4]) |
-							                                (static_cast<std::int32_t>(messageData[5]) << 8) |
-							                                (static_cast<std::int32_t>(messageData[6]) << 16) |
-							                                (static_cast<std::int32_t>(messageData[7]) << 24));
+							commandData.ddi = static_cast<std::uint16_t>(messageData[2]) | (static_cast<std::uint16_t>(messageData[3]) << 8);
+							
+							const std::uint32_t rawValue =
+								(static_cast<std::uint32_t>(messageData[4])) |
+								(static_cast<std::uint32_t>(messageData[5]) << 8) |
+								(static_cast<std::uint32_t>(messageData[6]) << 16) |
+								(static_cast<std::uint32_t>(messageData[7]) << 24);
+
+							commandData.processDataValue = static_cast<std::int32_t>(rawValue);
+							
 							parentTC->add_measurement_change_threshold(commandData);
 						}
 						break;
@@ -2066,12 +2094,16 @@ namespace isobus
 							LOCK_GUARD(Mutex, clientMutex);
 
 							commandData.elementNumber = static_cast<std::uint16_t>(static_cast<std::uint16_t>(messageData[0] >> 4) | (static_cast<std::uint16_t>(messageData[1]) << 4));
-							commandData.ddi = static_cast<std::uint16_t>(messageData[2]) |
-							  (static_cast<std::uint16_t>(messageData[3]) << 8);
-							commandData.processDataValue = (static_cast<std::int32_t>(messageData[4]) |
-							                                (static_cast<std::int32_t>(messageData[5]) << 8) |
-							                                (static_cast<std::int32_t>(messageData[6]) << 16) |
-							                                (static_cast<std::int32_t>(messageData[7]) << 24));
+							commandData.ddi = static_cast<std::uint16_t>(messageData[2]) | (static_cast<std::uint16_t>(messageData[3]) << 8);
+							
+							const std::uint32_t rawValue =
+								(static_cast<std::uint32_t>(messageData[4])) |
+								(static_cast<std::uint32_t>(messageData[5]) << 8) |
+								(static_cast<std::uint32_t>(messageData[6]) << 16) |
+								(static_cast<std::uint32_t>(messageData[7]) << 24);
+
+							commandData.processDataValue = static_cast<std::int32_t>(rawValue);
+							
 							parentTC->add_measurement_distance_interval(commandData);
 						}
 						break;
