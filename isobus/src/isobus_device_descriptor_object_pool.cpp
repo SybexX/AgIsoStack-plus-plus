@@ -818,10 +818,15 @@ namespace isobus
 						if ((binaryPoolSizeBytes >= expectedSize) && retVal)
 						{
 							std::string designator;
-							std::int32_t propertyValue = static_cast<std::int32_t>(binaryPool[7]) |
-							  (static_cast<std::int32_t>(binaryPool[8]) << 8) |
-							  (static_cast<std::int32_t>(binaryPool[9]) << 16) |
-							  (static_cast<std::int32_t>(binaryPool[10]) << 24);
+							
+							const std::uint32_t rawValue =
+								(static_cast<std::uint32_t>(binaryPool[7])) |
+								(static_cast<std::uint32_t>(binaryPool[8]) << 8) |
+								(static_cast<std::uint32_t>(binaryPool[9]) << 16) |
+								(static_cast<std::uint32_t>(binaryPool[10]) << 24);
+
+							const std::int32_t propertyValue = static_cast<std::int32_t>(rawValue);
+							
 							auto DDI = static_cast<std::uint16_t>(static_cast<std::uint16_t>(binaryPool[5]) | (static_cast<std::uint16_t>(binaryPool[6]) << 8));
 							auto uniqueID = static_cast<std::uint16_t>(static_cast<std::uint16_t>(binaryPool[3]) | (static_cast<std::uint16_t>(binaryPool[4]) << 8));
 							auto presentationObjectID = static_cast<std::uint16_t>(static_cast<std::uint16_t>(binaryPool[12 + numberDesignatorBytes]) | (static_cast<std::uint16_t>(binaryPool[13 + numberDesignatorBytes]) << 8));
@@ -869,10 +874,15 @@ namespace isobus
 						if ((binaryPoolSizeBytes >= expectedSize) && retVal)
 						{
 							std::string designator;
-							std::int32_t offset = static_cast<std::int32_t>(binaryPool[5]) |
-							  (static_cast<std::int32_t>(binaryPool[6]) << 8) |
-							  (static_cast<std::int32_t>(binaryPool[7]) << 16) |
-							  (static_cast<std::int32_t>(binaryPool[8]) << 24);
+							
+							const std::uint32_t rawValue =
+								(static_cast<std::uint32_t>(binaryPool[5])) |
+								(static_cast<std::uint32_t>(binaryPool[6]) << 8) |
+								(static_cast<std::uint32_t>(binaryPool[7]) << 16) |
+								(static_cast<std::uint32_t>(binaryPool[8]) << 24);
+
+							const std::int32_t offset = static_cast<std::int32_t>(rawValue);
+							
 							std::array<std::uint8_t, sizeof(float)> scaleBytes = {
 								binaryPool[9],
 								binaryPool[10],
