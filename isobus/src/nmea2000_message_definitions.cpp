@@ -228,10 +228,14 @@ namespace isobus
 
 			if (CAN_DATA_LENGTH == receivedMessage.get_data_length())
 			{
-				auto turnRate = static_cast<std::int32_t>(receivedMessage.get_uint8_at(1));
-				turnRate |= (static_cast<std::int32_t>(receivedMessage.get_uint8_at(2)) << 8);
-				turnRate |= (static_cast<std::int32_t>(receivedMessage.get_uint8_at(3)) << 16);
-				turnRate |= (static_cast<std::int32_t>(receivedMessage.get_uint8_at(4)) << 24);
+				const std::uint32_t rawValue =
+					(static_cast<std::int32_t>(receivedMessage.get_uint8_at(1))) |
+					(static_cast<std::int32_t>(receivedMessage.get_uint8_at(2)) << 8) |
+					(static_cast<std::int32_t>(receivedMessage.get_uint8_at(3)) << 16) |
+					(static_cast<std::int32_t>(receivedMessage.get_uint8_at(4)) << 24);
+
+				const std::int32_t turnRate = static_cast<std::int32_t>(rawValue);
+				
 				retVal |= set_sequence_id(receivedMessage.get_uint8_at(0));
 				retVal |= set_rate_of_turn(turnRate);
 				set_timestamp(SystemTiming::get_timestamp_ms());
@@ -312,6 +316,7 @@ namespace isobus
 			buffer.at(1) = static_cast<std::uint8_t>((latitude >> 8) & 0xFF);
 			buffer.at(2) = static_cast<std::uint8_t>((latitude >> 16) & 0xFF);
 			buffer.at(3) = static_cast<std::uint8_t>((latitude >> 24) & 0xFF);
+			
 			buffer.at(4) = static_cast<std::uint8_t>(longitude & 0xFF);
 			buffer.at(5) = static_cast<std::uint8_t>((longitude >> 8) & 0xFF);
 			buffer.at(6) = static_cast<std::uint8_t>((longitude >> 16) & 0xFF);
@@ -324,14 +329,22 @@ namespace isobus
 
 			if (CAN_DATA_LENGTH == receivedMessage.get_data_length())
 			{
-				auto decodedLatitude = static_cast<std::int32_t>(receivedMessage.get_uint8_at(0));
-				decodedLatitude |= (static_cast<std::int32_t>(receivedMessage.get_uint8_at(1)) << 8);
-				decodedLatitude |= (static_cast<std::int32_t>(receivedMessage.get_uint8_at(2)) << 16);
-				decodedLatitude |= (static_cast<std::int32_t>(receivedMessage.get_uint8_at(3)) << 24);
-				auto decodedLongitude = static_cast<std::int32_t>(receivedMessage.get_uint8_at(4));
-				decodedLongitude |= (static_cast<std::int32_t>(receivedMessage.get_uint8_at(5)) << 8);
-				decodedLongitude |= (static_cast<std::int32_t>(receivedMessage.get_uint8_at(6)) << 16);
-				decodedLongitude |= (static_cast<std::int32_t>(receivedMessage.get_uint8_at(7)) << 24);
+				const std::uint32_t rawValue1 =
+					(static_cast<std::int32_t>(receivedMessage.get_uint8_at(0))) |
+					(static_cast<std::int32_t>(receivedMessage.get_uint8_at(1)) << 8) |
+					(static_cast<std::int32_t>(receivedMessage.get_uint8_at(2)) << 16) |
+					(static_cast<std::int32_t>(receivedMessage.get_uint8_at(3)) << 24);
+
+				const std::int32_t decodedLatitude = static_cast<std::int32_t>(rawValue1);
+
+				const std::uint32_t rawValue2 =
+					(static_cast<std::int32_t>(receivedMessage.get_uint8_at(4))) |
+					(static_cast<std::int32_t>(receivedMessage.get_uint8_at(5)) << 8) |
+					(static_cast<std::int32_t>(receivedMessage.get_uint8_at(6)) << 16) |
+					(static_cast<std::int32_t>(receivedMessage.get_uint8_at(7)) << 24);
+
+				const std::int32_t decodedLongitude = static_cast<std::int32_t>(rawValue2);
+				
 				retVal |= set_latitude(decodedLatitude);
 				retVal |= set_longitude(decodedLongitude);
 				set_timestamp(SystemTiming::get_timestamp_ms());
