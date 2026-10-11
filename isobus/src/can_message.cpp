@@ -126,10 +126,17 @@ namespace isobus
 
 	void CANMessage::set_data(const std::uint8_t *dataBuffer, std::uint32_t length)
 	{
-		assert(length <= ABSOLUTE_MAX_MESSAGE_LENGTH && "CANMessage::set_data() called with length greater than maximum supported");
-		assert(nullptr != dataBuffer && "CANMessage::set_data() called with nullptr dataBuffer");
+		assert((length <= ABSOLUTE_MAX_MESSAGE_LENGTH) && "CANMessage::set_data() called with length greater than maximum supported");
 
-		data.insert(data.end(), dataBuffer, dataBuffer + length);
+		if (length == 0)
+		{
+			data.clear();
+			return;
+		}
+
+		assert((nullptr != dataBuffer) && "CANMessage::set_data() called with nullptr dataBuffer");
+
+		data.assign(dataBuffer, dataBuffer + length);
 	}
 
 	void CANMessage::set_data(std::uint8_t dataByte, const std::uint32_t insertPosition)
@@ -164,31 +171,35 @@ namespace isobus
 		std::uint16_t retVal;
 		if (ByteFormat::LittleEndian == format)
 		{
-			retVal = data.at(index);
-			retVal |= static_cast<std::uint16_t>(static_cast<std::uint16_t>(data.at(index + 1)) << 8);
+			retVal =
+				data.at(index) |
+				(static_cast<std::uint16_t>(data.at(index + 1)) << 8);
 		}
 		else
 		{
-			retVal = static_cast<std::uint16_t>(static_cast<std::uint16_t>(data.at(index)) << 8);
-			retVal |= data.at(index + 1);
+			retVal =
+				(static_cast<std::uint16_t>(data.at(index)) << 8) |
+				data.at(index + 1);
 		}
 		return retVal;
 	}
 
 	std::int16_t CANMessage::get_int16_at(const std::uint32_t index, const ByteFormat format) const
 	{
-		std::int16_t retVal;
+		std::uint16_t retVal;
 		if (ByteFormat::LittleEndian == format)
 		{
-			retVal = static_cast<std::int16_t>(data.at(index));
-			retVal |= static_cast<std::int16_t>(static_cast<std::int16_t>(data.at(index + 1)) << 8);
+			retVal =
+				data.at(index) |
+				(static_cast<std::uint16_t>(data.at(index + 1)) << 8);
 		}
 		else
 		{
-			retVal = static_cast<std::int16_t>(static_cast<std::int16_t>(data.at(index)) << 8);
-			retVal |= static_cast<std::int16_t>(data.at(index + 1));
+			retVal =
+				(static_cast<std::uint16_t>(data.at(index)) << 8) |
+				data.at(index + 1);
 		}
-		return retVal;
+		return static_cast<std::int16_t>(retVal);
 	}
 
 	std::uint32_t CANMessage::get_uint24_at(const std::uint32_t index, const ByteFormat format) const
@@ -196,35 +207,39 @@ namespace isobus
 		std::uint32_t retVal;
 		if (ByteFormat::LittleEndian == format)
 		{
-			retVal = data.at(index);
-			retVal |= static_cast<std::uint32_t>(data.at(index + 1)) << 8;
-			retVal |= static_cast<std::uint32_t>(data.at(index + 2)) << 16;
+			retVal =
+				data.at(index) |
+				(static_cast<std::uint32_t>(data.at(index + 1)) << 8) |
+				(static_cast<std::uint32_t>(data.at(index + 2)) << 16);
 		}
 		else
 		{
-			retVal = static_cast<std::uint32_t>(data.at(index)) << 16;
-			retVal |= static_cast<std::uint32_t>(data.at(index + 1)) << 8;
-			retVal |= data.at(index + 2);
+			retVal =
+				(static_cast<std::uint32_t>(data.at(index)) << 16) |
+				(static_cast<std::uint32_t>(data.at(index + 1)) << 8) |
+				data.at(index + 2);
 		}
 		return retVal;
 	}
 
 	std::int32_t CANMessage::get_int24_at(const std::uint32_t index, const ByteFormat format) const
 	{
-		std::int32_t retVal;
+		std::uint32_t retVal;
 		if (ByteFormat::LittleEndian == format)
 		{
-			retVal = static_cast<std::int32_t>(data.at(index));
-			retVal |= static_cast<std::int32_t>(data.at(index + 1)) << 8;
-			retVal |= static_cast<std::int32_t>(data.at(index + 2)) << 16;
+			retVal =
+				data.at(index) |
+				(static_cast<std::uint32_t>(data.at(index + 1)) << 8) |
+				(static_cast<std::uint32_t>(data.at(index + 2)) << 16);
 		}
 		else
 		{
-			retVal = static_cast<std::int32_t>(data.at(index)) << 16;
-			retVal |= static_cast<std::int32_t>(data.at(index + 1)) << 8;
-			retVal |= static_cast<std::int32_t>(data.at(index + 2));
+			retVal =
+				(static_cast<std::uint32_t>(data.at(index)) << 16) |
+				(static_cast<std::uint32_t>(data.at(index + 1)) << 8) |
+				data.at(index + 2);
 		}
-		return retVal;
+		return static_cast<std::int32_t>(retVal);
 	}
 
 	std::uint32_t CANMessage::get_uint32_at(const std::uint32_t index, const ByteFormat format) const
@@ -232,39 +247,43 @@ namespace isobus
 		std::uint32_t retVal;
 		if (ByteFormat::LittleEndian == format)
 		{
-			retVal = data.at(index);
-			retVal |= static_cast<std::uint32_t>(data.at(index + 1)) << 8;
-			retVal |= static_cast<std::uint32_t>(data.at(index + 2)) << 16;
-			retVal |= static_cast<std::uint32_t>(data.at(index + 3)) << 24;
+			retVal =
+				data.at(index) |
+				(static_cast<std::uint32_t>(data.at(index + 1)) << 8) |
+				(static_cast<std::uint32_t>(data.at(index + 2)) << 16) |
+				(static_cast<std::uint32_t>(data.at(index + 3)) << 24);
 		}
 		else
 		{
-			retVal = static_cast<std::uint32_t>(data.at(index)) << 24;
-			retVal |= static_cast<std::uint32_t>(data.at(index + 1)) << 16;
-			retVal |= static_cast<std::uint32_t>(data.at(index + 2)) << 8;
-			retVal |= data.at(index + 3);
+			retVal =
+				(static_cast<std::uint32_t>(data.at(index)) << 24) |
+				(static_cast<std::uint32_t>(data.at(index + 1)) << 16) |
+				(static_cast<std::uint32_t>(data.at(index + 2)) << 8) |
+				data.at(index + 3);
 		}
 		return retVal;
 	}
 
 	std::int32_t CANMessage::get_int32_at(const std::uint32_t index, const ByteFormat format) const
 	{
-		std::int32_t retVal;
+		std::uint32_t retVal;
 		if (ByteFormat::LittleEndian == format)
 		{
-			retVal = static_cast<std::int32_t>(data.at(index));
-			retVal |= static_cast<std::int32_t>(data.at(index + 1)) << 8;
-			retVal |= static_cast<std::int32_t>(data.at(index + 2)) << 16;
-			retVal |= static_cast<std::int32_t>(data.at(index + 3)) << 24;
+			retVal =
+				data.at(index) |
+				(static_cast<std::uint32_t>(data.at(index + 1)) << 8) |
+				(static_cast<std::uint32_t>(data.at(index + 2)) << 16) |
+				(static_cast<std::uint32_t>(data.at(index + 3)) << 24);
 		}
 		else
 		{
-			retVal = static_cast<std::int32_t>(data.at(index)) << 24;
-			retVal |= static_cast<std::int32_t>(data.at(index + 1)) << 16;
-			retVal |= static_cast<std::int32_t>(data.at(index + 2)) << 8;
-			retVal |= static_cast<std::int32_t>(data.at(index + 3));
+			retVal =
+				(static_cast<std::uint32_t>(data.at(index)) << 24) |
+				(static_cast<std::uint32_t>(data.at(index + 1)) << 16) |
+				(static_cast<std::uint32_t>(data.at(index + 2)) << 8) |
+				data.at(index + 3);
 		}
-		return retVal;
+		return static_cast<std::int32_t>(retVal);
 	}
 
 	std::uint64_t CANMessage::get_uint64_at(const std::uint32_t index, const ByteFormat format) const
@@ -272,61 +291,69 @@ namespace isobus
 		std::uint64_t retVal;
 		if (ByteFormat::LittleEndian == format)
 		{
-			retVal = data.at(index);
-			retVal |= static_cast<std::uint64_t>(data.at(index + 1)) << 8;
-			retVal |= static_cast<std::uint64_t>(data.at(index + 2)) << 16;
-			retVal |= static_cast<std::uint64_t>(data.at(index + 3)) << 24;
-			retVal |= static_cast<std::uint64_t>(data.at(index + 4)) << 32;
-			retVal |= static_cast<std::uint64_t>(data.at(index + 5)) << 40;
-			retVal |= static_cast<std::uint64_t>(data.at(index + 6)) << 48;
-			retVal |= static_cast<std::uint64_t>(data.at(index + 7)) << 56;
+			retVal =
+				data.at(index) |
+				(static_cast<std::uint64_t>(data.at(index + 1)) << 8) |
+				(static_cast<std::uint64_t>(data.at(index + 2)) << 16) |
+				(static_cast<std::uint64_t>(data.at(index + 3)) << 24) |
+				(static_cast<std::uint64_t>(data.at(index + 4)) << 32) |
+				(static_cast<std::uint64_t>(data.at(index + 5)) << 40) |
+				(static_cast<std::uint64_t>(data.at(index + 6)) << 48) |
+				(static_cast<std::uint64_t>(data.at(index + 7)) << 56);
 		}
 		else
 		{
-			retVal = static_cast<std::uint64_t>(data.at(index)) << 56;
-			retVal |= static_cast<std::uint64_t>(data.at(index + 1)) << 48;
-			retVal |= static_cast<std::uint64_t>(data.at(index + 2)) << 40;
-			retVal |= static_cast<std::uint64_t>(data.at(index + 3)) << 32;
-			retVal |= static_cast<std::uint64_t>(data.at(index + 4)) << 24;
-			retVal |= static_cast<std::uint64_t>(data.at(index + 5)) << 16;
-			retVal |= static_cast<std::uint64_t>(data.at(index + 6)) << 8;
-			retVal |= data.at(index + 7);
+			retVal =
+				(static_cast<std::uint64_t>(data.at(index)) << 56) |
+				(static_cast<std::uint64_t>(data.at(index + 1)) << 48) |
+				(static_cast<std::uint64_t>(data.at(index + 2)) << 40) |
+				(static_cast<std::uint64_t>(data.at(index + 3)) << 32) |
+				(static_cast<std::uint64_t>(data.at(index + 4)) << 24) |
+				(static_cast<std::uint64_t>(data.at(index + 5)) << 16) |
+				(static_cast<std::uint64_t>(data.at(index + 6)) << 8) |
+				data.at(index + 7);
 		}
 		return retVal;
 	}
 
 	std::int64_t CANMessage::get_int64_at(const std::uint32_t index, const ByteFormat format) const
 	{
-		std::int64_t retVal;
+		std::uint64_t retVal;
 		if (ByteFormat::LittleEndian == format)
 		{
-			retVal = static_cast<std::int64_t>(data.at(index));
-			retVal |= static_cast<std::int64_t>(data.at(index + 1)) << 8;
-			retVal |= static_cast<std::int64_t>(data.at(index + 2)) << 16;
-			retVal |= static_cast<std::int64_t>(data.at(index + 3)) << 24;
-			retVal |= static_cast<std::int64_t>(data.at(index + 4)) << 32;
-			retVal |= static_cast<std::int64_t>(data.at(index + 5)) << 40;
-			retVal |= static_cast<std::int64_t>(data.at(index + 6)) << 48;
-			retVal |= static_cast<std::int64_t>(data.at(index + 7)) << 56;
+			retVal =
+				data.at(index) |
+				(static_cast<std::uint64_t>(data.at(index + 1)) << 8) |
+				(static_cast<std::uint64_t>(data.at(index + 2)) << 16) |
+				(static_cast<std::uint64_t>(data.at(index + 3)) << 24) |
+				(static_cast<std::uint64_t>(data.at(index + 4)) << 32) |
+				(static_cast<std::uint64_t>(data.at(index + 5)) << 40) |
+				(static_cast<std::uint64_t>(data.at(index + 6)) << 48) |
+				(static_cast<std::uint64_t>(data.at(index + 7)) << 56);
 		}
 		else
 		{
-			retVal = static_cast<std::int64_t>(data.at(index)) << 56;
-			retVal |= static_cast<std::int64_t>(data.at(index + 1)) << 48;
-			retVal |= static_cast<std::int64_t>(data.at(index + 2)) << 40;
-			retVal |= static_cast<std::int64_t>(data.at(index + 3)) << 32;
-			retVal |= static_cast<std::int64_t>(data.at(index + 4)) << 24;
-			retVal |= static_cast<std::int64_t>(data.at(index + 5)) << 16;
-			retVal |= static_cast<std::int64_t>(data.at(index + 6)) << 8;
-			retVal |= static_cast<std::int64_t>(data.at(index + 7));
+			retVal =
+				(static_cast<std::uint64_t>(data.at(index)) << 56) |
+				(static_cast<std::uint64_t>(data.at(index + 1)) << 48) |
+				(static_cast<std::uint64_t>(data.at(index + 2)) << 40) |
+				(static_cast<std::uint64_t>(data.at(index + 3)) << 32) |
+				(static_cast<std::uint64_t>(data.at(index + 4)) << 24) |
+				(static_cast<std::uint64_t>(data.at(index + 5)) << 16) |
+				(static_cast<std::uint64_t>(data.at(index + 6)) << 8) |
+				data.at(index + 7);
 		}
-		return retVal;
+		return static_cast<std::int64_t>(retVal);
 	}
 
-	bool isobus::CANMessage::get_bool_at(const std::uint32_t byteIndex, const std::uint8_t bitIndex, const std::uint8_t length) const
+	bool CANMessage::get_bool_at(const std::uint32_t byteIndex, const std::uint8_t bitIndex, const std::uint8_t length) const
 	{
-		assert(length <= 8 - bitIndex && "length must be less than or equal to 8 - bitIndex");
-		auto mask = static_cast<std::uint8_t>(((1 << length) - 1) << bitIndex);
+		assert(bitIndex < 8);
+		assert(length >= 1);
+		assert(length <= (8 - bitIndex));
+
+		const std::uint8_t mask = static_cast<std::uint8_t>(((std::uint16_t{1} << length) - 1U) << bitIndex);
+
 		return (get_uint8_at(byteIndex) & mask) == mask;
 	}
 
